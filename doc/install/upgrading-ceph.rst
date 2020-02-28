@@ -44,7 +44,7 @@ three steps:
    in the specified node(s) from the old release to the release you specify.
    There is no ``ceph-deploy upgrade`` command.
 
-#. Login in to each Ceph node and restart each Ceph daemon.
+#. Log in to each Ceph node and restart each Ceph daemon.
    See `Operating a Cluster`_ for details.
 
 #. Ensure your cluster is healthy. See `Monitoring a Cluster`_ for details.
