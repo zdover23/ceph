@@ -32,7 +32,7 @@ notes document of your release`_ before upgrading. The basic process involves
 three steps:
 
 #. Use ``ceph-deploy`` on your admin node to upgrade the packages for
-   multiple hosts (using the ``ceph-deploy install`` command), or login to each
+   multiple hosts (using the ``ceph-deploy install`` command), or log in to each
    host and upgrade the Ceph package `using your distro's package manager`_.
    For example, when `Upgrading Monitors`_, the ``ceph-deploy`` syntax might
    look like this::
