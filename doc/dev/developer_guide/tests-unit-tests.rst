@@ -81,7 +81,7 @@ Currently the following modules use tox:
 - Python common (``./src/python-common/tox.ini``)
 
 
-Most tox configuration support multiple environments and tasks. You can see
+Most tox configurations support multiple environments and tasks. You can see
 which environments and tasks are supported by looking into the ``tox.ini``
 file to see what ``envlist`` is assigned.
 To run **tox**, just execute ``tox`` in the directory where ``tox.ini`` lies.
