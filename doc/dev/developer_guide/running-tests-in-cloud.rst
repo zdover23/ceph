@@ -124,7 +124,7 @@ uploaded to http://teuthology-logs.public.ceph.com.
 Run a standalone test
 ---------------------
 
-The standalone test explained in `Reading a standalone test`_ can be run
+The standalone test explained in :ref:`reading a standalone test<reading-standalone-test>` can be run
 with the following command
 
 .. prompt:: bash $
@@ -285,5 +285,4 @@ cluster.
 .. _Integration testing: ../tests-integration-tests
 .. _IRC:  ../essentials/#irc
 .. _Mailing List: ../essentials/#mailing-list
-.. _Reading A Standalone Test: ../testing-integration-tests/#reading-a-standalone-test
 .. _teuthology framework: https://github.com/ceph/teuthology
