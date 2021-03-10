@@ -96,10 +96,10 @@ the following command on the host:
 Host labels
 ===========
 
-The orchestrator supports assigning labels to hosts. Labels
-are free form and have no particular meaning by itself and each host
-can have multiple labels. They can be used to specify placement
-of daemons. See :ref:`orch-placement-by-labels`
+The orchestrator supports assigning labels to hosts. These labels do not
+have to be in any particular format and they do not functionally constrain
+the hosts in any way. A host can have multiple labels. Labels can be used
+to specify placement of daemons. See :ref:`orch-placement-by-labels`
 
 To add a label, run::
 
