@@ -46,14 +46,14 @@ steps needed:
 
   2. Compile Ceph with Jaeger enabled::
 
-  - for precompiled build::
+     - for precompiled build::
 
-    $ cd build
-    $ cmake -DWITH_JAEGER=ON ..
+       $ cd build
+       $ cmake -DWITH_JAEGER=ON ..
 
-  - for fresh compilation using do_cmake.sh::
+     - for fresh compilation using do_cmake.sh::
 
-    $ ./do_cmake.sh -DWITH_JAEGER=ON && ninja vstart 
+       $ ./do_cmake.sh -DWITH_JAEGER=ON && ninja vstart 
 
   3. After successful compiling, start a vstart cluster with `--jaeger` which
   will deploy `jaeger all-in-one <https://www.jaegertracing.io/docs/1.20/getting-started/#all-in-one>`_
