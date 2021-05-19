@@ -27,9 +27,9 @@ Vulnerability Management Process
    notification to the list members prior to the release date. The CVE
    fix details will be included in the release notes, which will be
    linked in the public announcement.
-#. Commits will be handled in a private repository for review and
-   testing and a new patch version will be released from this private
-   repository.
+#. A private repository will be used to review and test commits that address
+   security vulnerabilities. A new patch version will be released from this
+   private repository when the process of reviewing and testing is complete.
 #. If a vulnerability is unintentionally already fixed in the public
    repository, a few days are given to downstream stakeholders/vendors
    to prepare for updating before the public disclosure.
