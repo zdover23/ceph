@@ -9,37 +9,36 @@ capability is available in two modes:
 
 * **Journal-based**: This mode uses the RBD journaling image feature to ensure
   point-in-time, crash-consistent replication between clusters. Every write to
-  the RBD image is first recorded to the associated journal before modifying the
-  actual image. The remote cluster will read from this associated journal and
-  replay the updates to its local copy of the image. Since each write to the
-  RBD image will result in two writes to the Ceph cluster, expect write
-  latencies to nearly double while using the RBD journaling image feature.
+  the RBD image is first recorded to its associated journal before the image is
+  modified. The remote cluster reads from this associated journal and replays
+  the updates to its local copy of the image. Because each write to the RBD
+  image results in two writes to the Ceph cluster, write latencies nearly
+  double when the RBD journaling image feature is used.
 
-* **Snapshot-based**: This mode uses periodically scheduled or manually
+* **Snapshot-based**: This mode uses periodically-scheduled or manually-
   created RBD image mirror-snapshots to replicate crash-consistent RBD images
-  between clusters. The remote cluster will determine any data or metadata
-  updates between two mirror-snapshots and copy the deltas to its local copy of
-  the image. With the help of the RBD ``fast-diff`` image feature, updated data
-  blocks can be quickly determined without the need to scan the full RBD image.
-  Since this mode is not as fine-grained as journaling, the complete delta 
-  between two snapshots will need to be synced prior to use during a failover
-  scenario. Any partially applied set of deltas will be rolled back at moment
-  of failover.
+  between clusters. The remote cluster determines the amount of any data or
+  metadata updates between two mirror-snapshots and copies the deltas to its
+  local copy of the image. By using the RBD ``fast-diff`` image feature,
+  updated data blocks can be quickly identified without scanning the full RBD
+  image. Because this mode is not as fine-grained as journaling, the complete
+  delta between two snapshots must be synced prior to its use during a failover
+  scenario. Any partially applied set of deltas is rolled back at the moment of
+  failover.
 
-.. note:: journal-based mirroring requires the Ceph Jewel release or later;
-   snapshot-based mirroring requires the Ceph Octopus release or later.
+.. note:: Journal-based mirroring requires the Ceph Jewel release or later.
+   Snapshot-based mirroring requires the Ceph Octopus release or later.
 
 Mirroring is configured on a per-pool basis within peer clusters and can be
-configured on a specific subset of images within the pool.  You can also mirror
-all images within a given pool when using journal-based
-mirroring. Mirroring is configured using the ``rbd`` command. The
-``rbd-mirror`` daemon is responsible for pulling image updates from the remote
-peer cluster and applying them to the image within the local cluster.
+configured on a specific subset of images within the pool. All images within a
+given pool can be mirrored when using journal-based mirroring. Mirroring is
+configured using the ``rbd`` command. The ``rbd-mirror`` daemon is responsible
+for pulling image updates from the remote peer cluster and applying them to the
+image within the local cluster.
 
-Depending on the desired needs for replication, RBD mirroring can be configured
-for either one- or two-way replication:
+RBD mirroring can be configured for either one- or two-way replication:
 
-* **One-way Replication**: When data is only mirrored from a primary cluster to
+* **One-way Replication**: When data is mirrored only from a primary cluster to
   a secondary cluster, the ``rbd-mirror`` daemon runs only on the secondary
   cluster.
 
@@ -48,22 +47,22 @@ for either one- or two-way replication:
   ``rbd-mirror`` daemon runs on both clusters.
 
 .. important:: Each instance of the ``rbd-mirror`` daemon must be able to
-   connect to both the local and remote Ceph clusters simultaneously (i.e.
-   all monitor and OSD hosts). Additionally, the network must have sufficient
-   bandwidth between the two data centers to handle mirroring workload.
+   connect to both the local and remote Ceph clusters simultaneously (i.e.  all
+   monitor and OSD hosts). The network must have sufficient bandwidth between
+   the two data centers to handle the mirroring workload.
 
 Pool Configuration
 ==================
 
 The following procedures demonstrate how to perform the basic administrative
-tasks to configure mirroring using the ``rbd`` command. Mirroring is
+tasks to configure mirroring by using the ``rbd`` command. Mirroring is
 configured on a per-pool basis.
 
 These pool configuration steps should be performed on both peer clusters. These
-procedures assume that both clusters, named "site-a" and "site-b", are accessible
-from a single host for clarity.
+procedures assume that both clusters, named "site-a" and "site-b", are
+accessible from a single host for clarity.
 
-See the `rbd`_ manpage for additional details of how to connect to different
+See the `rbd`_ manpage for additional details on how to connect to different
 Ceph clusters.
 
 .. note:: The cluster name in the following examples corresponds to a Ceph
