@@ -61,8 +61,31 @@ Diagram - Replication of Object Data Between Zones
 The replication of object data between zones within a zonegroup looks
 something like this:
 
-.. image:: ../images/zone-sync2.png
-   :align: center
+.. figure:: ../images/zone-sync2.png
+   :class: with-border
+   :align: center 
+
+   This is the caption of the figure.
+
+.. graphviz::
+
+   digraph {
+      bgcolor="lightblue"
+      label="Master Zonegroup"
+      fontname="Helvetica,Arial,sans-serif"
+      fontsize=20
+
+      A [label="read only app"][shape=polygon,sides=4][fontname="Helvetica,Arial,sans-serif"][color="red"]
+      B [label="radosgw secondary zone us-west"][shape=polygon,sides=4][fontname="Helvetica,Arial,sans-serif"][color="red"]
+      C [label="write/read app"][shape=polygon,sides=4][fontname="Helvetica,Arial,sans-serif"][color="red"]
+      D [label="rados master zone us-east"][shape=polygon,sides=4][fontname="Helvetica,Arial,sans-serif"][color="red"]
+
+      A -> B [label="REST"]
+      C -> D [label="REST"]
+      D -> B [constraint=false][label="data sync"]
+
+   }
+
 
 At the top of this diagram, we see two applications (also known as "clients").
 The application on the right is both writing and reading data from the Ceph
