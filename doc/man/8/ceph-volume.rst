@@ -97,6 +97,10 @@ Optional arguments:
 
    Use the bluestore objectstore (default)
 
+.. option:: --filestore
+
+   Use the filestore objectstore
+
 .. option:: --yes
 
    Skip the report and prompt to continue provisioning

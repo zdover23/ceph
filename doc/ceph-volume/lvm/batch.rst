@@ -13,7 +13,7 @@ volumes and skip over already created volumes.
 
 All the features that ``ceph-volume lvm create`` supports, like ``dmcrypt``,
 avoiding ``systemd`` units from starting, defining bluestore,
-is supported.
+are supported.
 
 
 .. _ceph-volume-lvm-batch_auto:

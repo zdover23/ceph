@@ -14,10 +14,10 @@
                 was designed specifically for use with Ceph. BlueStore was
                 introduced in the Ceph Kraken release. In the Ceph Luminous
                 release, BlueStore became Ceph's default storage back end,
-                supplanting FileStore. BlueStore stores objects directly on 
-                Ceph block devices without any file system interface. 
-                Since Luminous (12.2), BlueStore has been Ceph's default 
-                and recommended storage back end.
+                supplanting FileStore. BlueStore stores objects directly on
+                block devices without any file system interface.  Since
+                Luminous (12.2), BlueStore has been Ceph's default and
+                recommended storage back end.
 
         Bucket
                 In the context of :term:`RGW`, a bucket is a group of objects.
