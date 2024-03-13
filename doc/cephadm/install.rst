@@ -47,12 +47,8 @@ up-to-date cephadm. There are two ways to get the initial ``cephadm``:
    Choose either the distribution-specific method or the curl-based method. Do
    not attempt to use both these methods on one system.
 
-.. note:: Recent versions of cephadm are distributed as an executable compiled from source code.
-   Unlike for earlier versions of Ceph it is no longer sufficient to copy a
-   single script from Ceph's git tree and run it. If you wish to run
-   cephadm using a development version you should create your own build of
-   cephadm. See :ref:`compiling-cephadm` for details on how to create your own
-   standalone cephadm executable.
+.. note:: In Quincy, cephadm is not distributed as an executable compiled from
+   source code. That feature was introduced in the Reef release.
 
 .. _cephadm_install_distros:
 
