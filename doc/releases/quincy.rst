@@ -1457,6 +1457,21 @@ Changelog
 
 - win32\_deps\_build<span></span>.sh: change Boost URL ([pr#55085](https://github.com/ceph/ceph/pull/55085), Lucian Petrut)
 
+
+el8 builds                                                                       
+----------
+
+RPM packages for EL8 (RHEL, CentOS, Rocky, AlmaLinux, etc.) are provided by CERN as a
+community member. These packages come with no warranty and have not been tested.
+The software in them has been tested by Ceph according to
+[platforms](https://docs.ceph.com/en/latest/start/os-recommendations/#platforms).
+
+The repository for EL8 builds is hosted by CERN at [Linux @ CERN](https://linuxsoft.cern.ch/repos/ceph-ext-quincy8el-stable/).
+The public part of the GPG key used to sign the packages is available at 
+[RPM-GPG-KEY-Ceph-Community](https://linuxsoft.cern.ch/repos/RPM-GPG-KEY-Ceph-Community).
+
+
+
 v17.2.7 Quincy
 ==============
 
