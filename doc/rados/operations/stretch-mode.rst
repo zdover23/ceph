@@ -62,10 +62,11 @@ consistency and sizing constraints. In some situations, you might
 discover that your cluster does not satisfy those constraints.
 
 The first category of these failures that we will discuss involves inconsistent
-networks -- if there is a netsplit (a disconnection between two servers that
-splits the network into two pieces), Ceph might be unable to mark OSDs ``down``
-and remove them from the acting PG sets. This failure to mark ODSs ``down``
-will occur, despite the fact that the primary PG is unable to replicate data (a
+networks. If there is a netsplit (a failure that
+splits the network into two conceptual islands that cannot communicate with
+each other), Ceph might be unable to mark OSDs ``down``
+and remove them from Placement Group (PG) acting sets. This failure to mark ODSs ``down``
+will occur despite the fact that the primary PG is unable to replicate data (a
 situation that, under normal non-netsplit circumstances, would result in the
 marking of affected OSDs as ``down`` and their removal from the PG). If this
 happens, Ceph will be unable to satisfy its durability guarantees and
