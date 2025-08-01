@@ -87,6 +87,11 @@ replay. Examine the journal replay status:
 Replay completes when the ``journal_read_pos`` reaches the
 ``journal_write_pos``. The write position does not change during replay. Track
 the progression of the read position to compute the expected time to complete.
+The MDS emits an `MDS_ESTIMATED_REPLAY_TIME` warning when the act of replaying
+the journal takes more than 30 seconds. The warning message includes an
+estimated time to the completion of journal replay::
+
+  mds.a(mds.0): replay: 50.0446% complete - elapsed time: 582s, estimated time remaining: 581s
 
 .. In Tentacle and later releases, the following text appears. It should not be
    backported to any branch prior to Tentacle, because the
